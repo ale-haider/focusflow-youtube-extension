@@ -1,0 +1,323 @@
+/* FocusFlow — YouTube Study Mode Content Styles */
+
+/* ===================== HIDE RECOMMENDATIONS ===================== */
+body.focusflow-hide-recommendations #secondary,
+body.focusflow-hide-recommendations ytd-watch-next-secondary-results-renderer,
+body.focusflow-hide-recommendations #related,
+body.focusflow-hide-recommendations ytd-rich-grid-renderer,
+body.focusflow-hide-recommendations ytd-browse:not([page-subtype="subscriptions"]) ytd-rich-grid-renderer,
+body.focusflow-hide-recommendations #home-content,
+body.focusflow-hide-recommendations ytd-two-column-browse-results-renderer,
+body.focusflow-hide-recommendations ytd-shelf-renderer,
+body.focusflow-hide-recommendations .ytd-watch-next-secondary-results-renderer,
+body.focusflow-hide-recommendations ytd-compact-video-renderer,
+body.focusflow-hide-recommendations ytd-item-section-renderer {
+  display: none !important;
+}
+
+/* Hide sidebar on homepage */
+body.focusflow-hide-recommendations ytd-browse ytd-rich-item-renderer {
+  display: none !important;
+}
+
+/* ===================== HIDE COMMENTS ===================== */
+body.focusflow-hide-comments #comments,
+body.focusflow-hide-comments ytd-comments,
+body.focusflow-hide-comments #comment-teaser {
+  display: none !important;
+}
+
+/* ===================== BLOCK SHORTS ===================== */
+body.focusflow-block-shorts ytd-rich-shelf-renderer[is-shorts],
+body.focusflow-block-shorts ytd-reel-shelf-renderer,
+body.focusflow-block-shorts ytd-shorts,
+body.focusflow-block-shorts a[href^="/shorts"],
+body.focusflow-block-shorts ytd-guide-entry-renderer a[href="/shorts"],
+body.focusflow-block-shorts #endpoint[href^="/shorts"],
+body.focusflow-block-shorts [is-shorts] {
+  display: none !important;
+}
+
+/* Shorts redirect banner */
+body.focusflow-block-shorts .focusflow-shorts-blocked {
+  display: flex !important;
+}
+
+/* ===================== CLEAN UP UI ===================== */
+body.focusflow-active #masthead {
+  background: #0a0a0f !important;
+  border-bottom: 1px solid #1e1e2e !important;
+}
+
+/* Hide notification bell, apps grid clutter */
+body.focusflow-hide-recommendations #buttons ytd-notification-topbar-button-renderer,
+body.focusflow-hide-recommendations ytd-topbar-menu-button-renderer {
+  /* keep visible so user can still navigate */
+}
+
+/* Expand video player when sidebar is hidden */
+body.focusflow-hide-recommendations #primary {
+  max-width: 100% !important;
+}
+
+body.focusflow-hide-recommendations ytd-watch-flexy[theater] #primary,
+body.focusflow-hide-recommendations #player-container-outer {
+  max-width: 100% !important;
+}
+
+/* ===================== FOCUSFLOW OVERLAY UI ===================== */
+#focusflow-timer-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  font-family: 'Courier New', monospace;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid #2a2a4a;
+  border-radius: 16px;
+  padding: 16px 20px;
+  color: #e0e0ff;
+  min-width: 200px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px rgba(120,80,255,0.2);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  cursor: move;
+  user-select: none;
+}
+
+#focusflow-timer-widget.minimized {
+  min-width: unset;
+  padding: 10px 14px;
+}
+
+#focusflow-timer-widget .ff-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+#focusflow-timer-widget.minimized .ff-header {
+  margin-bottom: 0;
+}
+
+#focusflow-timer-widget .ff-header .ff-logo {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #7c5cfc;
+  text-transform: uppercase;
+}
+
+#focusflow-timer-widget .ff-minimize {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+#focusflow-timer-widget .ff-minimize:hover { color: #e0e0ff; }
+
+#focusflow-timer-widget .ff-body { display: block; }
+#focusflow-timer-widget.minimized .ff-body { display: none; }
+
+#focusflow-timer-widget .ff-time {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+#focusflow-timer-widget .ff-phase {
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #7c5cfc;
+  margin-bottom: 14px;
+}
+
+#focusflow-timer-widget .ff-progress {
+  height: 3px;
+  background: #1e1e2e;
+  border-radius: 2px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+#focusflow-timer-widget .ff-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #7c5cfc, #a78bfa);
+  border-radius: 2px;
+  transition: width 1s linear;
+}
+
+#focusflow-timer-widget .ff-controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+}
+
+#focusflow-timer-widget .ff-btn {
+  background: #1e1e2e;
+  border: 1px solid #2a2a4a;
+  border-radius: 8px;
+  color: #e0e0ff;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 6px 12px;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+#focusflow-timer-widget .ff-btn:hover {
+  background: #2a2a4a;
+  border-color: #7c5cfc;
+}
+
+#focusflow-timer-widget .ff-btn.primary {
+  background: #7c5cfc;
+  border-color: #7c5cfc;
+  color: #fff;
+}
+
+#focusflow-timer-widget .ff-btn.primary:hover {
+  background: #9b7dff;
+}
+
+#focusflow-timer-widget .ff-stats {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #1e1e2e;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #888;
+}
+
+#focusflow-timer-widget .ff-stats span strong {
+  display: block;
+  color: #e0e0ff;
+  font-size: 14px;
+}
+
+/* Shorts blocked overlay */
+.focusflow-shorts-blocked {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 15, 0.97);
+  z-index: 999999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+  font-family: 'Courier New', monospace;
+  color: #e0e0ff;
+}
+
+.focusflow-shorts-blocked h2 {
+  font-size: 28px;
+  color: #7c5cfc;
+  margin: 0;
+}
+
+.focusflow-shorts-blocked p {
+  color: #888;
+  margin: 0;
+  font-size: 14px;
+}
+
+.focusflow-shorts-blocked button {
+  background: #7c5cfc;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px 20px;
+  font-family: inherit;
+  margin-top: 8px;
+}
+
+/* Notes panel */
+#focusflow-notes-panel {
+  position: fixed;
+  top: 80px;
+  right: 24px;
+  width: 320px;
+  max-height: 60vh;
+  z-index: 99998;
+  background: rgba(10, 10, 15, 0.97);
+  border: 1px solid #2a2a4a;
+  border-radius: 16px;
+  padding: 16px;
+  color: #e0e0ff;
+  font-family: 'Courier New', monospace;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  backdrop-filter: blur(12px);
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#focusflow-notes-panel.visible {
+  display: flex;
+}
+
+#focusflow-notes-panel .ff-notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: #7c5cfc;
+  text-transform: uppercase;
+}
+
+#focusflow-notes-panel .ff-notes-content {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #ccc;
+  overflow-y: auto;
+  max-height: 300px;
+  white-space: pre-wrap;
+}
+
+#focusflow-notes-panel .ff-notes-generate {
+  background: #7c5cfc;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 8px;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+
+#focusflow-notes-panel .ff-notes-generate:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#focusflow-notes-panel .ff-notes-loading {
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
